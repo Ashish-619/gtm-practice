@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ashish's Retail Store</title>
+
+  <!-- ==========================================
+       PASTE YOUR GTM <head> SNIPPET HERE
+       It looks like:
+       <script>(function(w,d,s,l,i)...)</script>
+  =========================================== -->
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
+
+    /* NAVBAR */
+    nav {
+      background: #1a1a2e;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo { color: #fff; font-size: 22px; font-weight: bold; }
+    nav a { color: #ccc; text-decoration: none; margin-left: 24px; font-size: 15px; }
+    nav a:hover { color: #fff; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .hero h1 { font-size: 42px; margin-bottom: 16px; }
+    .hero p { font-size: 18px; color: #aaa; margin-bottom: 32px; }
+    .btn-primary {
+      background: #e94560;
+      color: white;
+      padding: 14px 36px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: #c73652; }
+
+    /* PRODUCTS */
+    .section-title {
+      text-align: center;
+      padding: 48px 20px 24px;
+      font-size: 28px;
+    }
+    .products {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 0 40px 60px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 24px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .card .emoji { font-size: 48px; margin-bottom: 12px; }
+    .card h3 { font-size: 16px; margin-bottom: 8px; }
+    .card .price { color: #e94560; font-weight: bold; font-size: 18px; margin-bottom: 16px; }
+    .btn-add {
+      background: #1a1a2e;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 14px;
+    }
+    .btn-add:hover { background: #e94560; }
+
+    /* CONTACT FORM */
+    .contact {
+      background: white;
+      max-width: 500px;
+      margin: 0 auto 60px;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .contact h2 { margin-bottom: 24px; font-size: 24px; }
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .contact textarea { height: 100px; resize: vertical; }
+    .btn-submit {
+      background: #e94560;
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      width: 100%;
+    }
+    .btn-submit:hover { background: #c73652; }
+
+    /* FOOTER */
+    footer {
+      background: #1a1a2e;
+      color: #aaa;
+      text-align: center;
+      padding: 24px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">🛒 AshishStore</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <h1>Welcome to AshishStore</h1>
+    <p>Your one-stop shop for amazing products</p>
+    <button class="btn-primary" id="shopNowBtn">Shop Now</button>
+  </div>
+
+  <!-- PRODUCTS -->
+  <h2 class="section-title">🔥 Featured Products</h2>
+  <div class="products">
+
+    <div class="card">
+      <div class="emoji">👟</div>
+      <h3>Running Shoes</h3>
+      <div class="price">₹2,499</div>
+      <button class="btn-add" data-product="Running Shoes" data-price="2499">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🎧</div>
+      <h3>Wireless Headphones</h3>
+      <div class="price">₹3,999</div>
+      <button class="btn-add" data-product="Wireless Headphones" data-price="3999">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">⌚</div>
+      <h3>Smart Watch</h3>
+      <div class="price">₹5,999</div>
+      <button class="btn-add" data-product="Smart Watch" data-price="5999">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">💻</div>
+      <h3>Laptop Stand</h3>
+      <div class="price">₹1,299</div>
+      <button class="btn-add" data-product="Laptop Stand" data-price="1299">Add to Cart</button>
+    </div>
+
+  </div>
+
+  <!-- CONTACT FORM -->
+  <div class="contact" id="contact">
+    <h2>📬 Contact Us</h2>
+    <input type="text" id="userName" placeholder="Your Name" />
+    <input type="email" id="userEmail" placeholder="Your Email" />
+    <textarea placeholder="Your Message"></textarea>
+    <button class="btn-submit" id="submitBtn">Send Message</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 AshishStore. Built for GTM Practice. | Navi Mumbai, India</p>
+  </footer>
+
+  <!-- ==========================================
+       PASTE YOUR GTM <body> NOSCRIPT SNIPPET HERE
+       It looks like:
+       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXX"...
+  =========================================== -->
+
+</body>
+</html>
