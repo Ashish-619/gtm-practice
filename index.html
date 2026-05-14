@@ -201,6 +201,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        It looks like:
        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXX"...
   =========================================== -->
-
+<script>
+document.querySelectorAll('.btn-add').forEach(function(button) {
+  button.addEventListener('click', function() {
+    var productName = this.getAttribute('data-product');
+    var price = this.getAttribute('data-price');
+    
+    window.dataLayer.push({
+      event: 'add_to_cart',
+      product_name: productName,
+      price: price,
+      currency: 'INR'
+    });
+  });
+});
+</script>
 </body>
 </html>
